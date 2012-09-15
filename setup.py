@@ -27,7 +27,7 @@ VERSION = "0.2"
 if __name__ == '__main__':
 	bcrypt = Extension('bcrypt._bcrypt',
 		sources = ['bcrypt/bcrypt_python.c', 'bcrypt/blowfish.c',
-		    'bcrypt/bcrypt.c'])
+		    'bcrypt/bcrypt.c', 'bcrypt/pybc_blf.h'])
 	setup(	name = "py-bcrypt",
 		version = VERSION,
 		author = "Damien Miller",
