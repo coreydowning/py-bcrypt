@@ -39,6 +39,8 @@
 typedef unsigned __int8		u_int8_t;
 typedef unsigned __int16	u_int16_t;
 typedef unsigned __int32	u_int32_t;
+/* On Windows strdup is deprecated, replaced by the ISO C compliant _strdup. */
+#define strdup _strdup
 #endif
 
 /* Schneier specifies a maximum key length of 56 bytes.
