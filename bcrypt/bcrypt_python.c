@@ -73,8 +73,19 @@ bcrypt_hashpw(PyObject *self, PyObject *args, PyObject *kw_args)
 	    &password, &salt))
                 return NULL;
 
-	password_copy = strdup(password);
-	salt_copy = strdup(salt);
+  password_copy = malloc(strlen(password) + 1);
+  if (password_copy == NULL)
+  {
+    return NULL;
+  }
+  strcpy(password_copy, password);
+
+  salt_copy = malloc(strlen(salt) + 1);
+  if (salt_copy == NULL)
+  {
+    return NULL;
+  }
+  strcpy(salt_copy, salt);
 
 	Py_BEGIN_ALLOW_THREADS;
 	ret = pybc_bcrypt(password_copy, salt_copy);
